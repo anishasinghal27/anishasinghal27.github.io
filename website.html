@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anisha Singhal — Economic Research & Writing</title>
+<title>Anisha Singhal | Economic Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
     max-width:980px; margin:0 auto;
     padding:14px 28px;
     display:flex; align-items:center; justify-content:space-between;
-    gap:18px;
+    gap:18px; flex-wrap:nowrap;
   }
   .wordmark{
     font-family:"Fraunces", serif;
@@ -66,12 +66,12 @@
     font-size:.7rem; font-weight:400; color:var(--muted);
     letter-spacing:.14em; text-transform:uppercase;
   }
-  nav.links{display:flex; align-items:center; gap:6px;}
+  nav.links{display:flex; align-items:center; gap:2px; flex-wrap:nowrap;}
   .navbtn{
     font-family:"Newsreader",serif;
-    font-size:.8rem; letter-spacing:.13em; text-transform:uppercase;
+    font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
     color:var(--ink-2); background:none; border:none; cursor:pointer;
-    padding:8px 12px; border-radius:4px; transition:color .18s, background .18s;
+    padding:8px 10px; border-radius:4px; transition:color .18s, background .18s;
     white-space:nowrap;
   }
   .navbtn:hover{color:var(--espresso); background:var(--paper);}
@@ -127,6 +127,8 @@
     margin-top:22px; font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
     color:var(--muted);
   }
+  .meta-link{color:var(--espresso-soft); text-underline-offset:2px;}
+  .meta-link:hover{color:var(--gold);}
   .placeholder{
     max-width:560px; margin:54px auto 0;
     border:1.5px dashed var(--rule); border-radius:12px;
@@ -298,6 +300,7 @@
     display:block; margin-bottom:.15em; letter-spacing:.005em;
   }
   .lit-entry .work{font-style:italic; color:var(--ink-2);}
+  .commentary{font-style:italic; color:var(--muted);}
   .section-tag{
     display:inline-block; margin:0 0 4px;
     font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
@@ -314,7 +317,7 @@
     padding:30px 28px; text-align:center;
     color:var(--muted); font-size:.82rem; letter-spacing:.04em;
   }
-  footer .fmark{font-family:"Fraunces",serif; color:var(--espresso); font-size:.95rem; letter-spacing:.02em;}
+  footer .fmark{color:var(--espresso);}
 
   @media (max-width:640px){
     body{font-size:18px;}
@@ -333,7 +336,7 @@
   <div class="nav-inner">
     <a class="wordmark" href="#home" data-page="home">Anisha Singhal</a>
     <nav class="links">
-      <button class="navbtn" data-page="home">Home</button>
+      <button class="navbtn" data-page="home">Cover Letter</button>
       <button class="navbtn" data-page="research">AI &amp; Labor Research</button>
       <button class="navbtn" data-page="essay1">Economic Model Evolution</button>
       <button class="navbtn" data-page="essay2">Working for a Product</button>
@@ -348,19 +351,20 @@
     <div class="home-hero">
       <div class="home-kicker">Economic Research &amp; Writing</div>
       <h1 class="home-title">Anisha Singhal</h1>
-      <div class="home-meta">Economics &amp; Public Policy · Dartmouth College</div>
+      <div class="home-meta">Economics &amp; Public Policy · Dartmouth College · <a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="meta-link">Inspired by Economics Substack</a></div>
     </div>
 
     <div class="cover-letter wrap">
       <p>Dear Anthropic Economic Research Team,</p>
       <p>I am a rising senior at Dartmouth College studying Economics and Public Policy, and have been reading and writing extensively about the AI transition.</p>
       <p>I have conducted three projects on AI and labor, all independently motivated:</p>
+
       <div class="proj-cards">
         <div class="proj-card" onclick="showPage('research')" role="button" tabindex="0">
           <div class="proj-kicker">The Research</div>
           <h3 class="proj-head">AI and Labor Research</h3>
           <p class="proj-sub">Literature review of AI as a complement or a substitute</p>
-          <p class="proj-body">My Political Economy Project literature review of the whole AI-and-labor debate: complement vs. substitute vs. post-work.</p>
+          <p class="proj-body">A literature review of the AI-and-labor debate: complement vs. substitute and post-work.</p>
           <span class="proj-link">Read the brief →</span>
         </div>
         <div class="proj-card" onclick="showPage('essay1')" role="button" tabindex="0">
@@ -378,9 +382,11 @@
           <span class="proj-link">Read the essay →</span>
         </div>
       </div>
-      <p>In my practical analysis, I suggest that instead of focusing on specific roles (which AI may render obsolete), people should be more focused on working for a product that they care about — because that passion will make them more naturally adaptable.</p>
+
+      <p>Across my work, I return to the questions: when does AI augment labor, when does it automate labor, and what does the future of work look like? Answering those questions is the purpose of Anthropic's Economic Index, which is why I am interested in contributing to the Economic Research team.</p>
+      <p>In my practical analysis, I suggest that instead of focusing on specific roles (which AI may render obsolete), people should be more focused on working for a product that they care about, because that passion will make them more naturally adaptable.</p>
       <p>I am trying to live what I preach and am looking to work for products and teams I am inspired by. I want to work for the Economic Research team because I already love thinking about the ideas the team works on: modeling the economic impacts of AI, measuring it, and developing policy to guide its development.</p>
-      <p>I have linked my work demonstrating my interests in AI's labor impacts in the tabs above. I have also worked on AI and labor research in more formal academic contexts:</p>
+      <p>I have linked my work demonstrating my interests in AI's labor impacts in the tabs above. I have also worked on AI and labor research in more formal academic and professional contexts:</p>
 
       <div class="cred-cards cred-inline">
         <div class="cred-card">
@@ -395,18 +401,17 @@
         </div>
         <div class="cred-card">
           <div class="cred-kicker">Cornerstone Research</div>
-          <h3 class="cred-head">Theory to quantitative analysis</h3>
+          <h3 class="cred-head">Economic Consulting Quantitative Analysis</h3>
           <p class="cred-body">Built 500+ regression models in R and SQL for healthcare antitrust litigation and developed new methods to analyze data for rigorous and defensible quantitative analyses.</p>
         </div>
       </div>
 
-
-      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far. But I am a fast learner who is already deeply engaged with the questions your team is asking, and I would bring genuine intellectual investment, not just technical capacity, to the work.</p>
+      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far. But I am a fast learner who is already deeply engaged with the questions your team is asking, and I would bring genuine intellectual investment, alongside technical capacity, to the work.</p>
       <p>I would love to talk about how I might contribute — either through a fall internship or a full-time role.</p>
       <p class="cl-sign">Warm regards,<br>Anisha Singhal</p>
     </div>
 
-    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · anisha.singhal.27@dartmouth.edu · (646) 531-3325</footer>
+    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
   </section>
 
   <!-- ============ PAGE 2 — RESEARCH SUMMARY ============ -->
@@ -414,110 +419,103 @@
     <article class="article wrap">
       <div class="eyebrow">Literature Review · September 30, 2025</div>
       <h1 class="art-title">Artificial Intelligence &amp; Labor</h1>
-      <p class="deck">A synthesis of recent work on how AI is reshaping the value and nature of human work — and where the evidence is genuinely contested.</p>
+      <p class="deck">A synthesis of the academic debate on how AI is reshaping the value and nature of human work.</p>
       <div class="byline"><span class="who">Anisha Singhal</span></div>
       <hr class="rule-divider">
 
-      <p class="lede">The debate over AI's effect on labor markets splits, broadly, into three positions: AI as a <em>complement</em> to human work, AI as a <em>substitute</em> for it, and a post-work tradition that treats automation less as a forecast than as an argument for organizing society around something other than wage labor. The most useful axis running through all of it is not optimism versus pessimism but <strong>augmentation versus automation</strong> — whether a technology extends what a worker can do or replaces the worker outright.</p>
+      <p class="lede">I conducted a literature review to better understand the academic perspectives of the AI as a complement or substitute for labor debate. My research spanned three main buckets: complement, substitute, and post-work. I compiled a number of theories on the future of labor, but the answer to which one is correct is not in the arguments but in the data. The insights from Anthropic's Economic Index are the next step to answer the question of how the theory applies to the real-world numbers.</p>
+      <p>Below is a sample of the theories I analyzed from various academics and industry experts. I have also included some of my commentary on them.</p>
 
       <h2>I. AI as a Complement to Labor</h2>
 
       <div class="lit-entry">
-        <span class="src">David Autor</span>
-        <span class="work">Applying AI to Rebuild Middle-Class Jobs</span>
-        <p>Autor argues that AI, used well, could rebuild the middle-skill heart of the labor market hollowed out by automation and globalization. By pairing rules and information with acquired experience, AI could let a broader set of trained workers take on high-stakes decisions currently reserved for elite experts — doctors, lawyers, engineers, professors. The real danger, in his framing, is not a jobless future but the <em>devaluation of expertise</em>: a world where everyone is nominally an expert is one where no one is, labor becomes disposable, and wealth accrues to the owners of AI. He also points out an easily missed fact — the industrialized world is currently long on jobs and short on workers.</p>
+        <span class="src"><strong>David Autor, <em>Applying AI to Rebuild Middle-Class Jobs</em></strong></span>
+        <p>Autor argues that AI, used well, could rebuild the middle-skill heart of the labor market hollowed out by automation and globalization. By making information abundant, AI could let a broader set of trained workers take on high-stakes decisions currently reserved for elite experts — doctors, lawyers, engineers, professors. The real danger, in his framing, is not a jobless future but the devaluation of expertise: to paraphrase The Incredibles, "if everyone is expert, no one is expert," labor then becomes disposable, and wealth accrues to the owners of AI. He also points out that the industrialized world is currently long on jobs and short on workers.</p>
+        <p class="commentary">Most elite expert jobs have professional boards and licenses that create barriers to entry, so how will those interest groups and regulations impact the adoption of AI? How does the rate of decrease in jobs from AI compare to birthrate declines, and could they converge to an equilibrium state?</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Lawrence Lundy-Bryan</span>
-        <span class="work">Dirty Work: The Return of Blue Collar</span>
-        <p>Lundy-Bryan contends that our status hierarchy is inverted — the more materially necessary the work, the less respect it receives. Because AI automates cognitive labor more readily than physical labor, it may flip that ranking. He notes the white- to blue-collar wage gap is already narrowing as routine white-collar tasks (many of them, he argues, low-value to begin with) are absorbed, while care work, construction, and the trades face chronic shortages no algorithm can fill.</p>
+        <span class="src"><strong>Lawrence Lundy-Bryan, <em>Dirty Work: The Return of Blue Collar</em></strong></span>
+        <p>Lundy-Bryan contends that our status hierarchy is inverted: the more necessary the work, the less respect it receives. White-collar jobs have bloated and become increasingly abstractive. Since AI can take over mental labor more easily than physical labor, it may invert this hierarchy. AI reduces meaningless abstraction through automation and agents and can push people toward more directly impactful jobs.</p>
+        <p class="commentary">I have a theory that the more professionally you dress, the less societally important your job is. Those with important work need to get things done and need to be comfortable doing it. (This theory may be a product of conformation bias because I don't want to buy expensive work clothes.)</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">James Bessen</span>
-        <span class="work">Automation and Jobs: When Technology Boosts Employment</span>
-        <p>Bessen's contribution is to make the employment effect of automation conditional on demand elasticity across an industry's life cycle. Early on, productivity gains cut prices enough to expand demand (elasticity above one) and total employment rises despite less labor per unit; as markets saturate and demand turns inelastic, the same gains shed workers. Faster technical change adds jobs where needs are unmet and destroys them where markets are mature.</p>
+        <span class="src"><strong>James Bessen, <em>Automation and Jobs: When Technology Boosts Employment</em></strong></span>
+        <p>Bessen's contribution is to make the employment effect of automation conditional on demand elasticity across an industry's life cycle. Early on, productivity gains cut prices enough to expand demand (elasticity above one) and total employment rises despite less labor per unit. As markets saturate and demand turns inelastic, the industry sheds workers. Faster technical change adds jobs where needs are unmet and destroys them where markets are mature.</p>
+        <p class="commentary">Growth stage companies will be able to accelerate labor faster due to AI and easy access to capital through venture capital. Mature companies will be able to reduce bureaucratic bloat.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Richard Baldwin</span>
-        <span class="work">Globotics and Development</span>
-        <p>Writing in 2020, Baldwin predicted that robotics would render some manufacturing "jobless" while digital trade and telepresence made services freely tradable — shifting development away from the manufacturing-led path (China) toward a services-led one (India, the Philippines). I read the subsequent arrival of generative AI as a partial inversion: it has made many services <em>easier</em> to automate than manufacturing, even as telemigration persists through offshored AI-training work like data labeling.</p>
+        <span class="src"><strong>Richard Baldwin, <em>Globotics and Development</em></strong></span>
+        <p>Writing in 2020, Baldwin suggested that digital technology + globalization ("globotics") is reshaping development: robotics cuts manufacturing jobs (making some manufacturing jobless), while digital trade and telepresence make many services freely tradable — so development may shift from a manufacturing-led path (China) to a service-led path (India/Philippines).</p>
+        <p class="commentary">I read the impact of AI as an inversion of that trend: it has made many services easier to automate than manufacturing.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Arvind Narayanan &amp; Sayash Kapoor</span>
-        <span class="work">AI as Normal Technology</span>
-        <p>This essay treats AI as a controllable tool rather than a human-like intelligence, and argues its societal impact is gated less by raw capability than by diffusion. Method breakthroughs do not translate directly into economic effect; that requires application development and adoption, both slowed by safety concerns and regulation. The policy implication is to invest in complements — AI literacy, open data — that let diffusion catch up to innovation.</p>
+        <span class="src"><strong>Arvind Narayanan &amp; Sayash Kapoor, <em>AI as Normal Technology</em></strong></span>
+        <p>This essay treats AI as a controllable tool rather than a human-like intelligence, and argues its societal impact is curbed less by raw capability than by diffusion. Method breakthroughs do not translate directly into economic effect because that requires application development and adoption, both slowed by safety concerns and regulation. The policy implication is to invest in complements (AI literacy, open data) that let diffusion catch up to innovation.</p>
+        <p class="commentary">I'm working at a bank this summer and have been shocked by how bad the data-controlled AI models are compared to the models I have gotten used to using at school. Many fields are handicapped in their inability to complete and outsource tasks because of firewalling and lack of integration of the technology that is available.</p>
       </div>
-
-      <p>A useful counterweight to the whole complement-side optimism is the <em>productivity paradox</em> literature (Brynjolfsson and co-authors, 2017): a redux of the Solow paradox in which transformative technology is visible everywhere except in the productivity statistics — a reminder that hype has so far outrun measurable progress, and that even Kurzweil's "singularity" forecast sits around 2045.</p>
 
       <h2>II. AI as a Substitute for Labor</h2>
 
       <div class="lit-entry">
-        <span class="src">Erik Brynjolfsson et al.</span>
-        <span class="work">Canaries in the Coal Mine?</span>
+        <span class="src"><strong>Erik Brynjolfsson et al., <em>Canaries in the Coal Mine?</em></strong></span>
         <p>This paper finds that early-career workers (ages 22–25) in the most AI-exposed occupations have seen roughly a 13% relative decline in employment, while older workers in the same occupations and workers in less-exposed fields have held steady or grown. The mechanism is the gap between codified knowledge (which juniors bring and AI can automate) and tacit knowledge (which experience builds and AI cannot easily replace). The authors separate automating from augmenting tasks using Anthropic's Economic Index, and locate the employment effect mostly in the automating cases.</p>
+        <p>Noah Smith wrote a critique of this paper: "If AI is automating software engineering jobs, it makes sense that companies would not hire more fresh grads, but why would they be hiring more older software engineers? It is also odd that the wages for high risk jobs have not slowed and that the impact of AI is seen only in employment and not through wages." He also points out that the debate around is inherently skewed: "If AI takes a lot of people's jobs, the debate will end because one side will have clearly won. But if AI doesn't take a lot of people's jobs, then the debate will never be resolved, because there will be a bunch of people who will still go around saying that it's about to take everyone's job."</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Noah Smith</span>
-        <span class="work">Critique of "Canaries in the Coal Mine?"</span>
-        <p>Smith raises several flags. Some findings are odd — if AI is automating junior software work, why would firms hire <em>more</em> senior engineers, and why does the effect appear in employment but not wages? He also notes a structural asymmetry in the debate: a clear wave of job loss would settle it, but its absence never will, because there will always be a subset of weaker labor markets that someone can frame as the leading edge of displacement. He questions whether the Anthropic Economic Index — which infers, via AI, whether users were trying to offload a task or improve at it — is precise enough to carry the automation/augmentation distinction.</p>
+        <span class="src"><strong>David Marguerit, <em>Augmenting or Automating Labor?</em></strong></span>
+        <p>This paper uses Stack Overflow activity to observe in near-real-time what AI tools developers are building, alongside changes in new job titles, employment, and wages. Marguerit finds that augmentation creates new work, slightly raises employment, and modestly lifts high-skill wages, whereas automation generates no new work or employment and pushes wages down.</p>
+        <p class="commentary">Stack Overflow comments and activity is a creative method to codify automation vs. augmentation.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">David Marguerit</span>
-        <span class="work">Augmenting or Automating Labor?</span>
-        <p>Using Stack Overflow activity to observe in near-real-time what AI tools developers are building, alongside changes in new job titles, employment, and wages, Marguerit finds an asymmetry consistent with the framing above: augmentation creates new work, slightly raises employment, and modestly lifts high-skill wages, whereas automation generates no new work or employment and pushes wages down.</p>
+        <span class="src"><strong>Erik Brynjolfsson &amp; Andrew McAfee, <em>The Second Machine Age</em></strong></span>
+        <p>Where the first machine age made machines a complement to physical labor, the second makes them a substitute for cognitive labor. This leads to "bounty" (new abundance from accelerating innovation), alongside "spread" (a widening gap as substitution and talent-biased shifts skew income upward). The authors call for education that prizes creativity and adaptability over rote memorization, organizations redesigned around machine collaboration, better well-being metrics than GDP, and possibly a negative income tax or UBI.</p>
+        <p class="commentary">This is the idea that AI will make few owners of production very wealthy while the rest of the workforce suffers.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Erik Brynjolfsson &amp; Andrew McAfee</span>
-        <span class="work">The Second Machine Age</span>
-        <p>Where the first machine age made machines a complement to physical labor, the second makes them a substitute for cognitive labor. The result is "bounty" — immense new abundance from accelerating innovation — alongside "spread," a widening gap as substitution and talent-biased shifts skew income upward. The authors call for education that prizes creativity and adaptability over rote memorization, organizations redesigned around machine collaboration, better well-being metrics than GDP, and possibly a negative income tax or UBI.</p>
-      </div>
-
-      <div class="lit-entry">
-        <span class="src">Martin Ford</span>
-        <span class="work">Rise of the Robots</span>
-        <p>Ford dates the rupture between productivity and wages to the 1970s — by 2013 the typical nonsupervisory worker earned about 13% less than in 1973 even as productivity rose 107%. Automation, he argues, is moving from "routine" to merely "predictable" tasks, threatening the feedback loop between productivity, wages, and consumer spending on which mass demand depends. His proposed remedy is a universal basic income.</p>
+        <span class="src"><strong>Martin Ford, <em>Rise of the Robots</em></strong></span>
+        <p>Ford dates the rupture between productivity and wages to the 1970s — by 2013 the typical nonsupervisory worker earned about 13% less than in 1973 even as productivity rose 107%. Automation, he argues, is moving from "routine" to merely "predictable" tasks, threatening the feedback loop between productivity, wages, and consumer spending on which mass demand depends.</p>
+        <p class="commentary">These types of economic analyses should be looked at with caution because they are highly sensitive to the metrics used.</p>
       </div>
 
       <h2>III. Post-Work Perspectives</h2>
 
       <div class="lit-entry">
-        <span class="src">Aaron Benanav</span>
-        <span class="work">Automation and the Future of Work</span>
+        <span class="src"><strong>Aaron Benanav, <em>Automation and the Future of Work</em></strong></span>
         <p>Benanav reframes the problem: today's weak labor demand stems not from a technological leap but from economic stagnation and global overcapacity that depress profits and output, leaving firms to survive by cost-cutting, offshoring, and automating. With services low-productivity and largely non-tradable, no new sector has replaced manufacturing as a growth engine. His answer is a move toward a post-scarcity settlement in which needs are guaranteed independently of wage labor.</p>
+        <p class="commentary">The argument here is that competition is increasing, driving cost-cutting of all forms.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Jeremy Rifkin</span>
-        <span class="work">The End of Work</span>
+        <span class="src"><strong>Jeremy Rifkin, <em>The End of Work</em></strong></span>
         <p>Rifkin sees a steady, technology-driven decline in jobs across agriculture, manufacturing, and services, polarizing society between a tech-savvy elite and a displaced majority. He proposes three responses: a shorter (30-hour) workweek to spread available work, a guaranteed income paired with a work requirement, and a tax system that rewards time spent in the "third sector" of volunteering and non-profit work.</p>
+        <p class="commentary">Time and time again the shortened work week has been suggested as the future of work. But why would you hire 10 3-day workers if you could hire 6 5-day workers instead? No business is incentivized to implement a 3 day work week.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">Nick Srnicek &amp; Alex Williams</span>
-        <span class="work">Inventing the Future</span>
-        <p>This book embraces the post-work prospect outright: accelerate automation, shorten the workweek, implement a universal basic income, and dismantle the cultural primacy of the "work ethic" — steps toward a post-capitalist society organized around human flourishing rather than labor.</p>
+        <span class="src"><strong>Nick Srnicek &amp; Alex Williams, <em>Inventing the Future</em></strong></span>
+        <p>This book embraces the post-work prospect outright: accelerate automation, shorten the workweek, implement a universal basic income, and dismantle the cultural primacy of the "work ethic." This idealistic, post-capitalist society would be organized around human flourishing rather than labor.</p>
+        <p class="commentary">Sounds utopian, but it's easier to imagine the end of the world than the end of capitalism.</p>
       </div>
 
       <div class="lit-entry">
-        <span class="src">David Graeber</span>
-        <span class="work">On the Phenomenon of Bullshit Jobs</span>
-        <p>Graeber observes that automation's gains never produced Keynes's promised 15-hour week. Instead, administrative and managerial bloat expanded to fill the time, generating jobs even their holders cannot justify — flunkies, goons, duct-tapers, box-tickers, and taskmasters. Capitalism, supposedly an efficiency engine, accumulates meaningless work; and the cruel inversion is that genuinely useful jobs tend to pay least while the pointless ones pay best.</p>
+        <span class="src"><strong>David Graeber, <em>On the Phenomenon of Bullshit Jobs</em></strong></span>
+        <p>Graeber observes that automation's gains never produced Keynes's promised 15-hour week. Instead, administrative and managerial bloat expanded to fill the time, generating jobs even their holders cannot justify, which he groups into flunkies, goons, duct-tapers, box-tickers, and taskmasters. Capitalism, supposedly an efficiency engine, accumulates meaningless work. The cruelty lies in the fact that genuinely useful jobs tend to pay least while the pointless ones pay best. It's hard to do meaningful work and get paid well for it.</p>
+        <p class="commentary">AI can be a tool to get rid of some of these "bullshit" jobs, but it may also expand them. Managers may still demand the stamp of approval from a consulting firm. Middle management may stay in place for "quality control."</p>
       </div>
 
       <div class="synthesis">
-        <h2>Through-line</h2>
-        <p>Read together, the literature is less a fight between optimists and doomsayers than a disagreement about which category a given technology falls into — augmentation or automation — and how fast diffusion will move it from one to the other. That distinction now anchors empirical work like Anthropic's Economic Index, and it is the same question I take up in the essays that follow: how economic models break and reform as technology shifts from <em>augmenting</em> labor toward potentially <em>replacing</em> it, and what it means to choose work you can keep caring about when the underlying skills keep depreciating.</p>
+        <h2>Conclusion</h2>
+        <p>Read together, the literature is less a fight between optimists and doomsayers than a disagreement about which category a given technology falls into – augmentation or automation – and how fast diffusion will move it from one to the other. That distinction is the pivotal focus of empirical work of Anthropic's Economic Index, and it is the same question I take up in my Substack essays: how economic models break and reform as technology shifts from augmenting labor toward potentially replacing it, and how we should choose work when the underlying skills keep depreciating.</p>
       </div>
     </article>
-    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · anisha.singhal.27@dartmouth.edu · (646) 531-3325</footer>
+    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
   </section>
 
   <!-- ============ PAGE 3 — ESSAY I ============ -->
@@ -612,7 +610,7 @@
       <p>In the first model, a country's comparative advantage will come from how well its labor uses technology in a specific sector. Highly skilled labor to prompt AI will be the driver of economic growth. However, the very nature of AI is that it can learn. It is not a tool to augment one process, but to replace it in all dimensions. So the first model may just be a stepping stone to the second one.</p>
       <p>The economic models have and will continue to change. How much they will change and in what ways is unclear. The options look grim because this time, the progression into the new era seems likely to come at a cost to everyone except those at the top. They are the ones with the resources to create and deploy the capital over employing workers.</p>
     </article>
-    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · anisha.singhal.27@dartmouth.edu · (646) 531-3325</footer>
+    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
   </section>
 
   <!-- ============ PAGE 4 — ESSAY II ============ -->
@@ -663,7 +661,7 @@
 
       <p>We increase shareholder value most when we care. We care when the product matters to us and we enjoy working with the people around us. As the job market evolves, choosing a company based on a product may not only be a pathway to professional fulfillment but also to job security.</p>
     </article>
-    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · anisha.singhal.27@dartmouth.edu · (646) 531-3325</footer>
+    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
   </section>
 
 </main>
