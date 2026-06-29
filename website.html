@@ -8,325 +8,343 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 <style>
+  /* ─── Tokens ───────────────────────────────────────────── */
   :root{
-    --bg:#FBF4E8;
-    --paper:#F4E9D6;
-    --paper-deep:#EFE2CB;
-    --ink:#2A180E;
-    --ink-2:#5A4434;
-    --muted:#8C745D;
-    --espresso:#3A1408;
-    --espresso-soft:#5A2410;
-    --rule:#E2D3B9;
-    --gold:#9A6E2E;
-    --max:680px;
+    --bg:#F9F2E4;
+    --paper:#F2E8D4;
+    --paper-deep:#EAE0C8;
+    --ink:#1E110A;
+    --ink-2:#52392A;
+    --muted:#907460;
+    --espresso:#2C0F04;
+    --espresso-soft:#541C08;
+    --rule:#D8C9B0;
+    --gold:#8B5E1A;
+    --gold-light:#C49A45;
+    --max:660px;
   }
 
-  *{box-sizing:border-box;}
+  /* ─── Reset & base ─────────────────────────────────────── */
+  *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
     background-color:var(--bg);
-    background-image:
-      radial-gradient(circle at 18% 12%, rgba(154,110,46,.05), transparent 45%),
-      radial-gradient(circle at 86% 88%, rgba(58,20,8,.045), transparent 42%);
     color:var(--ink);
     font-family:"Newsreader", Georgia, serif;
     font-size:19px;
-    line-height:1.72;
+    line-height:1.74;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
-
-  a{color:var(--espresso-soft); text-underline-offset:2px; text-decoration-thickness:.06em;}
+  a{color:var(--espresso-soft); text-underline-offset:3px; text-decoration-thickness:.05em;}
   a:hover{color:var(--gold);}
 
-  /* ---------- Masthead / Nav ---------- */
+  /* ─── Navigation ───────────────────────────────────────── */
   header.masthead{
     position:sticky; top:0; z-index:50;
-    background:rgba(251,244,232,.86);
-    backdrop-filter:blur(8px);
+    background:rgba(249,242,228,.92);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--rule);
   }
   .nav-inner{
-    max-width:980px; margin:0 auto;
-    padding:14px 28px;
+    max-width:1020px; margin:0 auto;
+    padding:0 32px;
+    height:52px;
     display:flex; align-items:center; justify-content:space-between;
-    gap:18px; flex-wrap:nowrap;
+    gap:20px; flex-wrap:nowrap;
   }
   .wordmark{
     font-family:"Fraunces", serif;
-    font-weight:600; font-size:1.18rem;
+    font-weight:600; font-size:1.05rem;
     letter-spacing:.01em; color:var(--espresso);
     text-decoration:none; white-space:nowrap;
-    display:flex; align-items:baseline; gap:10px;
+    flex-shrink:0;
   }
-  .wordmark .mono{
-    font-family:"Newsreader",serif; font-style:italic;
-    font-size:.7rem; font-weight:400; color:var(--muted);
-    letter-spacing:.14em; text-transform:uppercase;
-  }
-  nav.links{display:flex; align-items:center; gap:2px; flex-wrap:nowrap;}
+  nav.links{display:flex; align-items:center; gap:0; flex-wrap:nowrap;}
   .navbtn{
     font-family:"Newsreader",serif;
-    font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--ink-2); background:none; border:none; cursor:pointer;
-    padding:8px 10px; border-radius:4px; transition:color .18s, background .18s;
+    font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); background:none; border:none; cursor:pointer;
+    padding:6px 11px; border-radius:3px;
+    transition:color .15s, background .15s;
     white-space:nowrap;
   }
-  .navbtn:hover{color:var(--espresso); background:var(--paper);}
-  .navbtn.active{color:var(--espresso); background:var(--paper-deep);}
-
-  .dropdown{position:relative;}
-  .dropdown-panel{
-    position:absolute; right:0; top:calc(100% + 8px);
-    background:var(--bg); border:1px solid var(--rule);
-    border-radius:8px; box-shadow:0 12px 34px rgba(42,24,14,.16);
-    min-width:300px; padding:8px; display:none; overflow:hidden;
-  }
-  .dropdown.open .dropdown-panel{display:block;}
-  .dropdown-panel button{
-    display:block; width:100%; text-align:left;
-    font-family:"Newsreader",serif; font-size:.92rem; line-height:1.35;
-    color:var(--ink); background:none; border:none; cursor:pointer;
-    padding:11px 12px; border-radius:6px; transition:background .15s;
-  }
-  .dropdown-panel button:hover{background:var(--paper);}
-  .dropdown-panel button .essay-num{
-    display:block; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:2px;
+  .navbtn:hover{color:var(--espresso);}
+  .navbtn.active{
+    color:var(--espresso);
+    box-shadow:inset 0 -2px 0 var(--gold);
   }
 
-  /* ---------- Page system ---------- */
+  /* ─── Page system ──────────────────────────────────────── */
   main{min-height:70vh;}
-  .page{display:none; animation:rise .5s ease both;}
+  .page{display:none; animation:rise .38s ease both;}
   .page.show{display:block;}
-  @keyframes rise{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
 
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
-
-  /* ---------- Home ---------- */
+  /* ─── Home hero ────────────────────────────────────────── */
   .home-hero{
-    padding:64px 28px 28px;
-    text-align:center;
+    max-width:var(--max); margin:0 auto;
+    padding:72px 32px 32px;
   }
   .home-kicker{
-    font-size:.78rem; letter-spacing:.32em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:26px;
+    font-size:.72rem; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:20px;
   }
   .home-title{
     font-family:"Fraunces", serif; font-weight:600;
-    font-size:clamp(2.8rem, 8vw, 5.2rem); line-height:.98;
-    color:var(--espresso); margin:0; letter-spacing:-.015em;
-  }
-  .home-sub{
-    font-style:italic; font-size:clamp(1.05rem,2.6vw,1.4rem);
-    color:var(--ink-2); max-width:560px; margin:28px auto 0;
+    font-size:clamp(2.6rem,7vw,4.4rem); line-height:1.0;
+    color:var(--espresso); letter-spacing:-.02em;
   }
   .home-meta{
-    margin-top:22px; font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+    margin-top:18px;
+    font-size:.82rem; letter-spacing:.04em;
     color:var(--muted);
+    border-top:1px solid var(--rule); padding-top:16px;
   }
-  .meta-link{color:var(--espresso-soft); text-underline-offset:2px;}
+  .meta-link{color:var(--ink-2);}
   .meta-link:hover{color:var(--gold);}
-  .placeholder{
-    max-width:560px; margin:54px auto 0;
-    border:1.5px dashed var(--rule); border-radius:12px;
-    padding:34px 28px; background:rgba(244,233,214,.4);
-    color:var(--muted); font-style:italic; font-size:.98rem; line-height:1.6;
-  }
-  .placeholder strong{color:var(--ink-2); font-style:normal; font-weight:600; display:block; margin-bottom:6px; letter-spacing:.04em;}
 
-  /* ---------- Project cards (cover letter) ---------- */
+  /* ─── Cover letter ─────────────────────────────────────── */
+  .cover-letter{
+    padding:40px 0 60px;
+    font-size:1.02rem; line-height:1.78;
+  }
+  .cover-letter p{margin:0 0 1.1em; color:var(--ink);}
+  .cl-list{margin:.2em 0 1.1em; padding-left:1.4em;}
+  .cl-list li{margin-bottom:.4em;}
+  .cl-sign{margin-top:1.8em !important; color:var(--ink-2); line-height:1.9;}
+
+  /* ─── Project cards ────────────────────────────────────── */
   .proj-cards{
     display:grid; grid-template-columns:repeat(3,1fr);
-    gap:16px; margin:1.4em 0 1.6em;
+    gap:0; margin:1.4em 0 1.6em;
+    border:1px solid var(--rule);
   }
   .proj-card{
-    background:var(--paper); border:1px solid var(--rule);
-    border-radius:12px; padding:26px 22px 22px;
-    cursor:pointer; transition:background .18s, box-shadow .18s;
+    padding:22px 20px 20px;
+    cursor:pointer;
+    transition:background .15s;
     display:flex; flex-direction:column;
+    border-right:1px solid var(--rule);
+    position:relative;
   }
-  .proj-card:hover{background:var(--paper-deep); box-shadow:0 6px 20px rgba(42,24,14,.09);}
+  .proj-card::before{
+    content:''; position:absolute; top:0; left:0;
+    width:2px; height:0;
+    background:var(--gold);
+    transition:height .22s ease;
+  }
+  .proj-card:hover::before{height:100%;}
+  .proj-card:last-child{border-right:none;}
+  .proj-card:hover{background:var(--paper);}
   .proj-kicker{
-    font-size:.7rem; letter-spacing:.24em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:10px;
+    font-size:.67rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gold-light); margin-bottom:9px;
   }
   .proj-head{
     font-family:"Fraunces",serif; font-weight:600;
-    font-size:1.12rem; line-height:1.2; color:var(--espresso);
-    margin:0 0 8px;
+    font-size:1.0rem; line-height:1.22; color:var(--espresso);
+    margin:0 0 7px;
   }
   .proj-sub{
-    font-size:.82rem; color:var(--muted); font-style:italic;
+    font-size:.8rem; color:var(--muted); font-style:italic;
     margin:0 0 10px; line-height:1.4;
   }
   .proj-body{
-    font-size:.88rem; line-height:1.6; color:var(--ink-2);
-    margin:0 0 16px; flex:1;
+    font-size:.86rem; line-height:1.58; color:var(--ink-2);
+    margin:0 0 14px; flex:1;
   }
   .proj-link{
-    font-size:.82rem; color:var(--espresso-soft);
+    font-size:.8rem; color:var(--gold);
     letter-spacing:.02em; font-style:italic;
   }
-  .proj-card:hover .proj-link{color:var(--gold);}
-  @media(max-width:680px){
+  @media(max-width:640px){
     .proj-cards{grid-template-columns:1fr;}
+    .proj-card{border-right:none; border-bottom:1px solid var(--rule);}
+    .proj-card:last-child{border-bottom:none;}
   }
 
-  /* ---------- Cover letter ---------- */
-  .cover-letter{
-    padding:44px 0 52px;
-    font-size:1.05rem; line-height:1.78;
-  }
-  .cover-letter p{margin:0 0 1.15em; color:var(--ink);}
-  .cl-list{margin:.2em 0 1.15em; padding-left:1.3em;}
-  .cl-list li{margin-bottom:.45em; color:var(--ink);}
-  .cl-sign{margin-top:1.6em !important; color:var(--ink-2); line-height:1.8;}
-
-  /* ---------- Credential cards ---------- */
+  /* ─── Credential cards ─────────────────────────────────── */
   .cred-cards{
     max-width:960px; margin:0 auto 72px;
-    padding:0 28px;
+    padding:0 32px;
     display:grid; grid-template-columns:repeat(3,1fr);
     gap:0;
-    border:1px solid var(--rule); border-radius:12px;
-    overflow:hidden;
+    border:1px solid var(--rule);
     background:var(--paper);
   }
   .cred-card{
-    padding:32px 28px 28px;
+    padding:26px 22px 22px;
     border-right:1px solid var(--rule);
   }
   .cred-card:last-child{border-right:none;}
   .cred-kicker{
-    font-size:.7rem; letter-spacing:.26em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:14px;
+    font-size:.67rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:11px;
   }
   .cred-head{
     font-family:"Fraunces",serif; font-weight:600;
-    font-size:1.22rem; line-height:1.18; color:var(--espresso);
-    margin:0 0 14px; letter-spacing:-.005em;
+    font-size:1.05rem; line-height:1.18; color:var(--espresso);
+    margin:0 0 10px;
   }
   .cred-body{
-    font-size:.93rem; line-height:1.65; color:var(--ink-2);
-    margin:0 0 20px;
-  }
-  .cred-tags{
-    font-size:.74rem; letter-spacing:.1em; color:var(--muted);
-    text-transform:uppercase;
+    font-size:.88rem; line-height:1.62; color:var(--ink-2);
+    margin:0;
   }
   .cred-inline{
-    max-width:100%; margin:1.6em 0 1.6em;
-    padding:0;
+    max-width:100%; margin:1.5em 0 1.6em; padding:0;
   }
-  .cred-inline .cred-head{font-size:1.05rem;}
-  .cred-inline .cred-body{font-size:.88rem; margin-bottom:0;}
-
+  .cred-inline .cred-head{font-size:.98rem;}
+  .cred-inline .cred-body{font-size:.86rem;}
   @media(max-width:720px){
-    .cred-cards{grid-template-columns:1fr; border-radius:10px;}
+    .cred-cards{grid-template-columns:1fr;}
     .cred-card{border-right:none; border-bottom:1px solid var(--rule);}
     .cred-card:last-child{border-bottom:none;}
+    .cred-inline{margin:1.2em 0;}
   }
 
-  /* ---------- Article / research typography ---------- */
-  .article{padding:60px 0 96px;}
+  /* ─── Article layout ───────────────────────────────────── */
+  .article{padding:56px 0 96px;}
   .eyebrow{
-    font-size:.74rem; letter-spacing:.28em; text-transform:uppercase;
-    color:var(--gold); text-align:center; margin-bottom:22px;
+    font-size:.7rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--gold); text-align:center; margin-bottom:20px;
+    display:block;
   }
+  .eyebrow-link{
+    color:var(--gold); text-underline-offset:2px;
+    text-decoration:underline; font-style:normal;
+  }
+  .eyebrow-link:hover{color:var(--espresso-soft);}
   .art-title{
     font-family:"Fraunces", serif; font-weight:600;
-    font-size:clamp(2rem, 5.5vw, 3.05rem); line-height:1.06;
-    color:var(--espresso); margin:0 0 18px; letter-spacing:-.01em; text-align:center;
+    font-size:clamp(1.9rem, 5vw, 2.8rem); line-height:1.07;
+    color:var(--espresso); margin:0 0 16px;
+    letter-spacing:-.01em; text-align:center;
   }
   .deck{
-    font-style:italic; font-size:1.18rem; color:var(--ink-2);
-    text-align:center; max-width:600px; margin:0 auto 30px; line-height:1.5;
+    font-style:italic; font-size:1.12rem; color:var(--ink-2);
+    text-align:center; max-width:580px; margin:0 auto 28px; line-height:1.52;
   }
   .byline{
-    display:flex; align-items:center; justify-content:center; gap:12px;
-    padding:18px 0 0; border-top:1px solid var(--rule);
-    margin-top:6px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 0 0; border-top:1px solid var(--rule); margin-top:4px;
   }
-  .byline .who{font-weight:600; color:var(--ink);}
+  .byline .who{font-weight:600; color:var(--ink); font-size:.95rem;}
   .byline .dot{color:var(--rule);}
-  .byline .when{color:var(--muted); font-size:.92rem; font-style:italic;}
-  .eyebrow-link{color:var(--gold); text-decoration:underline; text-underline-offset:2px; font-style:normal;}
-  .eyebrow-link:hover{color:var(--espresso-soft);}
-  .rule-divider{border:none; border-top:1px solid var(--rule); margin:34px auto 40px; max-width:120px;}
+  .byline .when{color:var(--muted); font-size:.88rem; font-style:italic;}
+  .rule-divider{
+    border:none; border-top:1px solid var(--rule);
+    margin:32px auto 38px; max-width:100px;
+  }
 
-  .article p{margin:0 0 1.25em;}
+  /* ─── Article body ─────────────────────────────────────── */
+  .article p{margin:0 0 1.2em;}
   .article h2{
     font-family:"Fraunces", serif; font-weight:600;
-    font-size:1.85rem; line-height:1.12; color:var(--espresso);
-    margin:2.1em 0 .6em; letter-spacing:-.005em;
+    font-size:1.7rem; line-height:1.12; color:var(--espresso);
+    margin:2.2em 0 .55em;
+    padding-bottom:.4em;
+    border-bottom:1px solid var(--rule);
   }
   .article h3{
     font-family:"Fraunces", serif; font-weight:500;
-    font-size:1.28rem; color:var(--espresso-soft);
-    margin:1.8em 0 .5em;
+    font-size:1.2rem; color:var(--espresso-soft);
+    margin:1.7em 0 .45em;
   }
-  .article ol, .article ul{margin:0 0 1.3em; padding-left:1.4em;}
-  .article ol li, .article ul li{margin-bottom:.5em; padding-left:.2em;}
-  .article ol ol, .article ol ul{margin:.5em 0 .5em;}
+  .article ol, .article ul{margin:0 0 1.2em; padding-left:1.4em;}
+  .article ol li, .article ul li{margin-bottom:.45em; padding-left:.15em;}
+  .article ol ol, .article ol ul{margin:.4em 0 .4em;}
 
   blockquote{
-    margin:1.8em 0; padding:6px 26px;
-    border-left:3px solid var(--gold);
-    background:linear-gradient(90deg, rgba(244,233,214,.55), rgba(244,233,214,0));
-    color:var(--ink-2); font-style:italic; font-size:1.08rem;
+    margin:1.7em 0; padding:8px 22px;
+    border-left:2px solid var(--gold);
+    background:linear-gradient(90deg, rgba(242,232,212,.6), rgba(242,232,212,0) 85%);
+    color:var(--ink-2); font-style:italic; font-size:1.05rem;
   }
-  blockquote p{margin:.6em 0;}
+  blockquote p{margin:.55em 0;}
 
-  figure{margin:2.2em 0; text-align:center;}
+  figure{margin:2em 0; text-align:center;}
   figure img{
     max-width:100%; height:auto;
-    border:1px solid var(--rule); border-radius:6px;
-    background:#fff; box-shadow:0 10px 30px rgba(42,24,14,.10);
+    border:1px solid var(--rule);
+    background:#fff; box-shadow:0 8px 28px rgba(30,17,10,.09);
   }
-  figure.small img{max-width:380px;}
+  figure.small img{max-width:360px;}
   figcaption{
-    margin-top:12px; font-size:.82rem; color:var(--muted);
-    font-style:italic; letter-spacing:.02em;
+    margin-top:10px; font-size:.8rem; color:var(--muted);
+    font-style:italic;
   }
 
-  /* research-specific bits */
-  .lede{font-size:1.18rem; color:var(--ink-2);}
-  .lit-entry{margin:0 0 1.6em;}
+  /* ─── Research-specific ────────────────────────────────── */
+  .lede{font-size:1.12rem; color:var(--ink-2); line-height:1.76;}
+  .lit-entry{
+    margin:0 0 2em;
+    padding-left:18px;
+    border-left:2px solid var(--rule);
+    transition:border-color .18s;
+  }
+  .lit-entry:hover{border-left-color:var(--gold);}
   .lit-entry .src{
-    font-family:"Fraunces",serif; font-weight:600; font-size:1.06rem; color:var(--espresso);
-    display:block; margin-bottom:.15em; letter-spacing:.005em;
+    font-family:"Fraunces",serif; font-weight:600;
+    font-size:1.02rem; color:var(--espresso);
+    display:block; margin-bottom:.3em;
   }
   .lit-entry .work{font-style:italic; color:var(--ink-2);}
-  .commentary{font-style:italic; color:var(--muted);}
+  .commentary{
+    font-style:italic; color:var(--muted);
+    font-size:.94rem; line-height:1.66;
+    border-left:1px solid var(--rule); padding-left:14px;
+    margin-top:.5em;
+  }
   .section-tag{
     display:inline-block; margin:0 0 4px;
-    font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
+    font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
   }
   .synthesis{
-    margin-top:2.4em; padding:26px 28px; border-radius:10px;
-    background:var(--paper); border:1px solid var(--rule);
+    margin-top:2.6em; padding:24px 26px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--gold);
   }
-  .synthesis h2{margin-top:0;}
+  .synthesis h2{
+    margin-top:0; border-bottom:none;
+    font-size:1.3rem; margin-bottom:.5em;
+  }
 
-  /* ---------- Footer ---------- */
+  /* ─── Evidence card (in-essay callout) ─────────────────── */
+  .evidence-card{
+    margin:1.9em 0;
+    padding:22px 26px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--gold);
+  }
+  .evidence-kicker{
+    font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:11px;
+  }
+  .evidence-card p{
+    margin:0; font-size:.96rem; line-height:1.66; color:var(--ink-2);
+  }
+
+  /* ─── Footer ───────────────────────────────────────────── */
   footer{
     border-top:1px solid var(--rule); margin-top:40px;
-    padding:30px 28px; text-align:center;
-    color:var(--muted); font-size:.82rem; letter-spacing:.04em;
+    padding:24px 32px; text-align:center;
+    color:var(--muted); font-size:.8rem; letter-spacing:.04em;
   }
   footer .fmark{color:var(--espresso);}
 
-  @media (max-width:640px){
+  /* ─── Mobile ───────────────────────────────────────────── */
+  @media(max-width:640px){
     body{font-size:18px;}
-    .nav-inner{padding:12px 18px; flex-wrap:wrap; gap:8px;}
-    .wordmark .mono{display:none;}
-    nav.links{flex-wrap:wrap; gap:2px;}
-    .navbtn{padding:7px 8px; font-size:.72rem; letter-spacing:.08em;}
+    .nav-inner{padding:0 18px; gap:8px;}
+    .navbtn{padding:5px 7px; font-size:.68rem; letter-spacing:.06em;}
     .wrap, .home-hero, .article{padding-left:20px; padding-right:20px;}
-    .dropdown-panel{min-width:240px;}
+    .home-hero{padding-top:48px;}
+    .cover-letter{padding:28px 0 40px;}
+    .cred-cards{padding:0 20px;}
   }
 </style>
 </head>
@@ -406,7 +424,7 @@
         </div>
       </div>
 
-      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far. But I am a fast learner who is already deeply engaged with the questions your team is asking, and I would bring genuine intellectual investment, alongside technical capacity, to the work.</p>
+      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far. Anthropic's Economic Research team is quantifying the effects of the theories I have been studying. The observed exposure measure and the economic primitives framework hone the augment-versus-automate distinction through data. My work has been the theory looking for exactly this kind of measurement. I am a fast learner who is already deeply engaged with the questions your team is asking, and I would bring genuine intellectual investment, alongside technical capacity, to the work.</p>
       <p>I would love to talk about how I might contribute — either through a fall internship or a full-time role.</p>
       <p class="cl-sign">Warm regards,<br>Anisha Singhal</p>
     </div>
@@ -513,6 +531,7 @@
       <div class="synthesis">
         <h2>Conclusion</h2>
         <p>Read together, the literature is less a fight between optimists and doomsayers than a disagreement about which category a given technology falls into – augmentation or automation – and how fast diffusion will move it from one to the other. That distinction is the pivotal focus of empirical work of Anthropic's Economic Index, and it is the same question I take up in my Substack essays: how economic models break and reform as technology shifts from augmenting labor toward potentially replacing it, and how we should choose work when the underlying skills keep depreciating.</p>
+        <p>The data to settle this debate is being developed and harvested at Anthropic. Massenkoff and McCrory (2026) test the substitute-side hypothesis Brynjolfsson presents more directly and find it more muted than the "Canaries" results suggest: no systematic rise in unemployment among the most exposed workers since 2022, though hiring of 22-to-25-year-olds into exposed occupations has slowed by roughly 14%. Their observed exposure measure also captures that AI today reaches just a fraction of its theoretical capability, so the augmentation-heavy stage may be the transitional stage I describe in my essay on economic models.</p>
       </div>
     </article>
     <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
@@ -648,6 +667,11 @@
       <p>Skills used to be a moat and a proxy for individual value in the corporate environment. Expertise and drive used to be good enough markers of a good employee.</p>
       <p>My uncle likes to say that you can either optimize for expertise or money in your career. Ideally, expertise and money go hand-in-hand, but that may not always be the case. Sometimes pursuing expertise may mean sacrificing office politics, which would help you move up. Optimizing for money may mean giving up more interesting and meaningful work to focus on work that will boost your career more.</p>
       <p>This presents another dilemma: optimizing for expertise may lead to more fulfillment in work, but if hard skills are becoming outdated, what can foster a more meaningful career? The substitute will be passion and adaptability.</p>
+
+      <div class="evidence-card">
+        <div class="evidence-kicker">Anthropic Economic Research · 2026</div>
+        <p>There's now data behind this. In a study of roughly 400,000 Claude Code sessions, Anthropic's Economic Research team found that what predicts success isn't coding proficiency but domain expertise: understanding the problem you're solving. This expertise is task-specific and durable where specific tool-skills are not. Coding agents don't substitute for that understanding, but reward it. When the skills expire, what's left is how well you understand the higher level purpose of the work itself.</p>
+      </div>
 
       <h2>The fulfillment fallacy</h2>
       <p>We have been conditioned to view work as a day job. We are told work-life balance is spending just 9am-5pm in an office and having 5pm-9pm to yourself. There is also an implicit tradeoff where less work-life balance may be compensated for with more pay (e.g. law, finance, consulting).</p>
