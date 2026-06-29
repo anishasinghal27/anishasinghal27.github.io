@@ -75,6 +75,21 @@
     box-shadow:inset 0 -2px 0 var(--gold);
   }
 
+  /* hamburger — hidden on desktop */
+  .nav-toggle{
+    display:none;
+    background:none; border:none; cursor:pointer;
+    padding:8px; flex-direction:column; gap:4px;
+  }
+  .nav-toggle span{
+    display:block; width:22px; height:2px;
+    background:var(--espresso); border-radius:2px;
+    transition:transform .25s, opacity .2s;
+  }
+  .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
   /* ─── Page system ──────────────────────────────────────── */
   main{min-height:70vh;}
   .page{display:none; animation:rise .38s ease both;}
@@ -340,35 +355,44 @@
   @media(max-width:640px){
     body{font-size:18px;}
     .nav-inner{
-      flex-direction:column;
+      flex-wrap:wrap;
       height:auto;
-      padding:10px 16px;
-      gap:6px;
+      padding:0 18px;
+      min-height:52px;
+      align-items:center;
     }
-    .wordmark{font-size:1rem;}
+    .nav-toggle{display:flex;}
     nav.links{
-      width:100%;
-      justify-content:center;
-      gap:2px;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
+      flex-basis:100%;
+      flex-direction:column;
+      align-items:stretch;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+      border-top:0 solid var(--rule);
     }
-    nav.links::-webkit-scrollbar{display:none;}
+    nav.links.open{
+      max-height:340px;
+      border-top:1px solid var(--rule);
+      padding-bottom:8px;
+    }
     .navbtn{
-      padding:6px 9px; font-size:.66rem; letter-spacing:.05em;
-      flex-shrink:0;
+      width:100%; text-align:left;
+      padding:13px 4px; font-size:.8rem; letter-spacing:.08em;
+      border-bottom:1px solid var(--rule);
+      border-radius:0;
     }
-    .navbtn.active{box-shadow:inset 0 -2px 0 var(--gold);}
+    nav.links .navbtn:last-child{border-bottom:none;}
+    .navbtn.active{
+      box-shadow:none; color:var(--espresso);
+      border-left:2px solid var(--gold);
+      padding-left:12px;
+    }
     .wrap, .home-hero, .article{padding-left:20px; padding-right:20px;}
     .home-hero{padding-top:40px;}
     .cover-letter{padding:28px 0 40px;}
     .cred-cards{padding:0 20px;}
-  }
-
-  @media(max-width:380px){
-    nav.links{justify-content:flex-start;}
-    .navbtn{font-size:.62rem; padding:6px 7px;}
   }
 </style>
 </head>
@@ -377,7 +401,10 @@
 <header class="masthead">
   <div class="nav-inner">
     <a class="wordmark" href="#home" data-page="home">Anisha Singhal</a>
-    <nav class="links">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
       <button class="navbtn" data-page="home">Cover Letter</button>
       <button class="navbtn" data-page="research">AI &amp; Labor Research</button>
       <button class="navbtn" data-page="essay1">Economic Model Evolution</button>
@@ -718,6 +745,15 @@
   const pages = document.querySelectorAll('.page');
   const navbtns = document.querySelectorAll('[data-page]');
 
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  }
+
   window.showPage = function(id){
     pages.forEach(p => p.classList.toggle('show', p.id === id));
     document.querySelectorAll('nav.links .navbtn').forEach(b => b.classList.remove('active'));
@@ -725,7 +761,14 @@
     if(activeBtn) activeBtn.classList.add('active');
     if(history.replaceState){ history.replaceState(null, '', '#' + id); }
     window.scrollTo({top:0, behavior:'auto'});
+    closeMenu();
   }
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
 
   navbtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
