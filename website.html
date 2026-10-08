@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,392 +7,244 @@
 <title>Anisha Singhal | Economic Research</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  /* ─── Tokens ───────────────────────────────────────────── */
+  /* ── Tokens ─────────────────────────────────────────── */
   :root{
-    --bg:#F9F2E4;
-    --paper:#F2E8D4;
-    --paper-deep:#EAE0C8;
-    --ink:#1E110A;
-    --ink-2:#52392A;
-    --muted:#907460;
-    --espresso:#2C0F04;
-    --espresso-soft:#541C08;
-    --rule:#D8C9B0;
-    --gold:#8B5E1A;
-    --gold-light:#C49A45;
-    --max:660px;
+    --forest:#1F3B2D;
+    --forest-deep:#172E22;
+    --forest-line:#36573F;
+    --sage:#EDF0E7;
+    --bone:#FBFAF4;
+    --ink:#1A261E;
+    --ink-2:#3D4A40;
+    --muted:#6B786D;
+    --rule:#D5DBCD;
+    --marigold:#D9A23C;
+    --marigold-deep:#A97818;
+    --on-dark:#F4EFDF;
+    --on-dark-2:rgba(244,239,223,.74);
+    --display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
+    --serif:"Libre Caslon Text",Georgia,serif;
+    --sans:"Public Sans",system-ui,-apple-system,sans-serif;
+    --sheet:780px;
   }
 
-  /* ─── Reset & base ─────────────────────────────────────── */
+  /* ── Base ───────────────────────────────────────────── */
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background-color:var(--bg);
-    color:var(--ink);
-    font-family:"Newsreader", Georgia, serif;
-    font-size:19px;
-    line-height:1.74;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    background:var(--sage); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  a{color:var(--espresso-soft); text-underline-offset:3px; text-decoration-thickness:.05em;}
-  a:hover{color:var(--gold);}
+  a{color:var(--forest); text-decoration:underline; text-decoration-color:var(--marigold);
+    text-decoration-thickness:2px; text-underline-offset:3px; transition:background .15s;}
+  a:hover{background:rgba(217,162,60,.18);}
+  :focus-visible{outline:2px solid var(--marigold); outline-offset:3px;}
 
-  /* ─── Navigation ───────────────────────────────────────── */
+  /* ── Navigation ─────────────────────────────────────── */
   header.masthead{
     position:sticky; top:0; z-index:50;
-    background:rgba(249,242,228,.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--rule);
+    background:var(--forest); border-bottom:1px solid var(--forest-line);
   }
   .nav-inner{
-    max-width:1020px; margin:0 auto;
-    padding:0 32px;
-    height:52px;
-    display:flex; align-items:center; justify-content:space-between;
-    gap:20px; flex-wrap:nowrap;
+    max-width:1240px; margin:0 auto; padding:0 32px; height:60px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
   }
   .wordmark{
-    font-family:"Fraunces", serif;
-    font-weight:600; font-size:1.05rem;
-    letter-spacing:.01em; color:var(--espresso);
-    text-decoration:none; white-space:nowrap;
-    flex-shrink:0;
+    font-family:var(--display); font-size:1.3rem; color:var(--on-dark);
+    text-decoration:none; white-space:nowrap; flex-shrink:0; letter-spacing:.005em;
   }
-  nav.links{display:flex; align-items:center; gap:0; flex-wrap:nowrap;}
+  .wordmark:hover{background:none; color:#fff;}
+  nav.links{display:flex; align-items:center; gap:2px;}
   .navbtn{
-    font-family:"Newsreader",serif;
-    font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--muted); background:none; border:none; cursor:pointer;
-    padding:6px 11px; border-radius:3px;
-    transition:color .15s, background .15s;
-    white-space:nowrap;
+    font-family:var(--sans); font-size:.86rem; font-weight:500;
+    color:var(--on-dark-2); background:none; border:none; cursor:pointer;
+    padding:20px 10px 18px; white-space:nowrap; transition:color .15s;
   }
-  .navbtn:hover{color:var(--espresso);}
-  .navbtn.active{
-    color:var(--espresso);
-    box-shadow:inset 0 -2px 0 var(--gold);
-  }
+  .navbtn:hover{color:var(--on-dark);}
+  .navbtn.active{color:var(--on-dark); box-shadow:inset 0 -3px 0 var(--marigold);}
 
-  /* hamburger — hidden on desktop */
-  .nav-toggle{
-    display:none;
-    background:none; border:none; cursor:pointer;
-    padding:8px; flex-direction:column; gap:4px;
-  }
-  .nav-toggle span{
-    display:block; width:22px; height:2px;
-    background:var(--espresso); border-radius:2px;
-    transition:transform .25s, opacity .2s;
-  }
-  .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer;
+    padding:10px; flex-direction:column; gap:5px;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--on-dark);
+    transition:transform .25s, opacity .2s;}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .nav-toggle.open span:nth-child(2){opacity:0;}
-  .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-  /* ─── Page system ──────────────────────────────────────── */
-  main{min-height:70vh;}
-  .page{display:none; animation:rise .38s ease both;}
-  .page.show{display:block;}
-  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  /* ── Pages ──────────────────────────────────────────── */
+  .page{display:none;}
+  .page.show{display:block; animation:pagein .3s ease both;}
+  @keyframes pagein{from{opacity:0;} to{opacity:1;}}
 
-  /* ─── Home hero ────────────────────────────────────────── */
-  .home-hero{
-    max-width:var(--max); margin:0 auto;
-    padding:72px 32px 32px;
-  }
+  /* ── Green header bands (home hero + article heads) ─── */
+  .home-hero, .page-head{background:var(--forest); color:var(--on-dark);}
+  .home-hero{padding:88px 32px 150px;}
+  .page-head{padding:72px 32px 140px;}
+  .home-hero > *, .page-head-inner{max-width:calc(var(--sheet) - 120px); margin-left:auto; margin-right:auto;}
+
   .home-kicker{
-    font-size:.72rem; letter-spacing:.3em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:20px;
+    font-family:var(--serif); font-style:italic; font-size:1.1rem;
+    color:var(--marigold); margin-bottom:18px;
   }
   .home-title{
-    font-family:"Fraunces", serif; font-weight:600;
-    font-size:clamp(2.6rem,7vw,4.4rem); line-height:1.0;
-    color:var(--espresso); letter-spacing:-.02em;
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(3.2rem, 11vw, 6.6rem); line-height:.95; letter-spacing:-.015em;
+    color:var(--on-dark);
+    animation:titlein .9s cubic-bezier(.2,.7,.2,1) both;
   }
+  @keyframes titlein{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:none;}}
   .home-meta{
-    margin-top:18px;
-    font-size:.82rem; letter-spacing:.04em;
-    color:var(--muted);
-    border-top:1px solid var(--rule); padding-top:16px;
+    margin-top:26px; padding-top:18px; border-top:1px solid var(--forest-line);
+    font-size:.95rem; color:var(--on-dark-2);
   }
-  .meta-link{color:var(--ink-2);}
-  .meta-link:hover{color:var(--gold);}
+  .home-meta a, .page-head a{color:var(--on-dark); text-decoration-color:var(--marigold);}
+  .home-meta a:hover, .page-head a:hover{background:rgba(217,162,60,.22);}
 
-  /* ─── Cover letter ─────────────────────────────────────── */
-  .cover-letter{
-    padding:40px 32px 60px;
-    font-size:1.02rem; line-height:1.78;
-  }
-  .cover-letter p{margin:0 0 1.1em; color:var(--ink);}
-  .cl-list{margin:.2em 0 1.1em; padding-left:1.4em;}
-  .cl-list li{margin-bottom:.4em;}
-  .cl-sign{margin-top:1.8em !important; color:var(--ink-2); line-height:1.9;}
-
-  /* ─── Project cards ────────────────────────────────────── */
-  .proj-cards{
-    display:grid; grid-template-columns:repeat(3,1fr);
-    gap:0; margin:1.4em 0 1.6em;
-    border:1px solid var(--rule);
-  }
-  .proj-card{
-    padding:22px 20px 20px;
-    cursor:pointer;
-    transition:background .15s;
-    display:flex; flex-direction:column;
-    border-right:1px solid var(--rule);
-    position:relative;
-  }
-  .proj-card::before{
-    content:''; position:absolute; top:0; left:0;
-    width:2px; height:0;
-    background:var(--gold);
-    transition:height .22s ease;
-  }
-  .proj-card:hover::before{height:100%;}
-  .proj-card:last-child{border-right:none;}
-  .proj-card:hover{background:var(--paper);}
-  .proj-kicker{
-    font-size:.67rem; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--gold-light); margin-bottom:9px;
-  }
-  .proj-head{
-    font-family:"Fraunces",serif; font-weight:600;
-    font-size:1.0rem; line-height:1.22; color:var(--espresso);
-    margin:0 0 7px;
-  }
-  .proj-sub{
-    font-size:.8rem; color:var(--muted); font-style:italic;
-    margin:0 0 10px; line-height:1.4;
-  }
-  .proj-body{
-    font-size:.86rem; line-height:1.58; color:var(--ink-2);
-    margin:0 0 14px; flex:1;
-  }
-  .proj-link{
-    font-size:.8rem; color:var(--gold);
-    letter-spacing:.02em; font-style:italic;
-  }
-  @media(max-width:640px){
-    .proj-cards{grid-template-columns:1fr;}
-    .proj-card{border-right:none; border-bottom:1px solid var(--rule);}
-    .proj-card:last-child{border-bottom:none;}
-  }
-
-  /* ─── Credential cards ─────────────────────────────────── */
-  .cred-cards{
-    max-width:960px; margin:0 auto 72px;
-    padding:0 32px;
-    display:grid; grid-template-columns:repeat(3,1fr);
-    gap:0;
-    border:1px solid var(--rule);
-    background:var(--paper);
-  }
-  .cred-card{
-    padding:26px 22px 22px;
-    border-right:1px solid var(--rule);
-  }
-  .cred-card:last-child{border-right:none;}
-  .cred-kicker{
-    font-size:.67rem; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:11px;
-  }
-  .cred-head{
-    font-family:"Fraunces",serif; font-weight:600;
-    font-size:1.05rem; line-height:1.18; color:var(--espresso);
-    margin:0 0 10px;
-  }
-  .cred-body{
-    font-size:.88rem; line-height:1.62; color:var(--ink-2);
-    margin:0;
-  }
-  .cred-inline{
-    max-width:100%; margin:1.5em 0 1.6em; padding:0;
-  }
-  .cred-inline .cred-head{font-size:.98rem;}
-  .cred-inline .cred-body{font-size:.86rem;}
-  @media(max-width:720px){
-    .cred-cards{grid-template-columns:1fr;}
-    .cred-card{border-right:none; border-bottom:1px solid var(--rule);}
-    .cred-card:last-child{border-bottom:none;}
-    .cred-inline{margin:1.2em 0;}
-  }
-
-  /* ─── Article layout ───────────────────────────────────── */
-  .article{padding:56px 0 96px;}
-  .eyebrow{
-    font-size:.7rem; letter-spacing:.28em; text-transform:uppercase;
-    color:var(--gold); text-align:center; margin-bottom:20px;
-    display:block;
-  }
-  .eyebrow-link{
-    color:var(--gold); text-underline-offset:2px;
-    text-decoration:underline; font-style:normal;
-  }
-  .eyebrow-link:hover{color:var(--espresso-soft);}
+  .eyebrow{font-size:.9rem; color:var(--marigold); margin-bottom:18px;}
+  .eyebrow-link{color:var(--on-dark) !important;}
   .art-title{
-    font-family:"Fraunces", serif; font-weight:600;
-    font-size:clamp(1.9rem, 5vw, 2.8rem); line-height:1.07;
-    color:var(--espresso); margin:0 0 16px;
-    letter-spacing:-.01em; text-align:center;
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(2.3rem, 6.2vw, 3.9rem); line-height:1.04; letter-spacing:-.01em;
+    color:var(--on-dark); margin-bottom:20px;
   }
   .deck{
-    font-style:italic; font-size:1.12rem; color:var(--ink-2);
-    text-align:center; max-width:580px; margin:0 auto 28px; line-height:1.52;
+    font-family:var(--serif); font-style:italic; font-size:1.2rem; line-height:1.55;
+    color:var(--on-dark-2); max-width:600px; margin-bottom:28px;
   }
   .byline{
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    padding:16px 0 0; border-top:1px solid var(--rule); margin-top:4px;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    padding-top:16px; border-top:1px solid var(--forest-line); font-size:.92rem;
   }
-  .byline .who{font-weight:600; color:var(--ink); font-size:.95rem;}
-  .byline .dot{color:var(--rule);}
-  .byline .when{color:var(--muted); font-size:.88rem; font-style:italic;}
-  .rule-divider{
-    border:none; border-top:1px solid var(--rule);
-    margin:32px auto 38px; max-width:100px;
-  }
+  .byline .who{font-weight:600; color:var(--on-dark);}
+  .byline .dot{color:var(--forest-line);}
+  .byline .when{color:var(--on-dark-2);}
 
-  /* ─── Article body ─────────────────────────────────────── */
-  .article p{margin:0 0 1.2em;}
+  /* ── The paper sheet that overlaps the band ─────────── */
+  .cover-letter, .article{
+    position:relative; max-width:var(--sheet);
+    margin:-96px auto 0; padding:60px 60px 76px;
+    background:var(--bone); border:1px solid var(--rule); border-top:4px solid var(--marigold);
+  }
+  .cover-letter{font-family:var(--serif); font-size:1.04rem; line-height:1.85;}
+  .cover-letter p{margin-bottom:1.15em;}
+  .cl-sign{margin-top:2em !important; color:var(--ink-2); line-height:1.9;}
+
+  /* ── Article typography ─────────────────────────────── */
+  .article{font-family:var(--serif); font-size:1.04rem; line-height:1.85;}
+  .article p{margin-bottom:1.25em;}
   .article h2{
-    font-family:"Fraunces", serif; font-weight:600;
-    font-size:1.7rem; line-height:1.12; color:var(--espresso);
-    margin:2.2em 0 .55em;
-    padding-bottom:.4em;
-    border-bottom:1px solid var(--rule);
+    font-family:var(--display); font-weight:400; font-size:2.05rem; line-height:1.12;
+    color:var(--forest); margin:2em 0 .55em;
   }
-  .article h3{
-    font-family:"Fraunces", serif; font-weight:500;
-    font-size:1.2rem; color:var(--espresso-soft);
-    margin:1.7em 0 .45em;
-  }
-  .article ol, .article ul{margin:0 0 1.2em; padding-left:1.4em;}
-  .article ol li, .article ul li{margin-bottom:.45em; padding-left:.15em;}
-  .article ol ol, .article ol ul{margin:.4em 0 .4em;}
+  .article > h2:first-child{margin-top:0;}
+  .article h3{font-family:var(--serif); font-weight:700; font-size:1.15rem; color:var(--forest); margin:1.8em 0 .45em;}
+  .article ol, .article ul{margin:0 0 1.25em; padding-left:1.4em;}
+  .article li{margin-bottom:.45em; padding-left:.2em;}
+  .article li::marker{color:var(--marigold-deep);}
+  .lede{font-size:1.16rem; color:var(--ink-2);}
 
   blockquote{
-    margin:1.7em 0; padding:8px 22px;
-    border-left:2px solid var(--gold);
-    background:linear-gradient(90deg, rgba(242,232,212,.6), rgba(242,232,212,0) 85%);
-    color:var(--ink-2); font-style:italic; font-size:1.05rem;
+    margin:2em 0; padding:4px 0 4px 26px; border-left:3px solid var(--marigold);
+    font-family:var(--serif); font-style:italic; font-size:1.18rem; line-height:1.7; color:var(--forest);
   }
-  blockquote p{margin:.55em 0;}
+  blockquote p{margin:.5em 0 !important;}
 
-  figure{margin:2em 0; text-align:center;}
-  figure img{
-    max-width:100%; height:auto;
-    border:1px solid var(--rule);
-    background:#fff; box-shadow:0 8px 28px rgba(30,17,10,.09);
-  }
-  figure.small img{max-width:360px;}
-  figcaption{
-    margin-top:10px; font-size:.8rem; color:var(--muted);
-    font-style:italic;
-  }
+  figure{margin:2.2em 0; text-align:center;}
+  figure img{max-width:100%; height:auto; background:#fff; border:1px solid var(--rule); padding:10px;}
+  figure.small img{max-width:380px;}
+  figcaption{margin-top:10px; font-family:var(--sans); font-size:.82rem; color:var(--muted);}
 
-  /* ─── Research-specific ────────────────────────────────── */
-  .lede{font-size:1.12rem; color:var(--ink-2); line-height:1.76;}
-  .lit-entry{
-    margin:0 0 2em;
-    padding-left:18px;
-    border-left:2px solid var(--rule);
-    transition:border-color .18s;
-  }
-  .lit-entry:hover{border-left-color:var(--gold);}
-  .lit-entry .src{
-    font-family:"Fraunces",serif; font-weight:600;
-    font-size:1.02rem; color:var(--espresso);
-    display:block; margin-bottom:.3em;
-  }
-  .lit-entry .work{font-style:italic; color:var(--ink-2);}
-  .commentary{
-    font-style:italic; color:var(--muted);
-    font-size:.94rem; line-height:1.66;
-    margin-top:.5em;
-  }
-  .section-tag{
-    display:inline-block; margin:0 0 4px;
-    font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
-  }
-  .synthesis{
-    margin-top:2.6em; padding:24px 26px;
-    background:var(--paper);
-    border:1px solid var(--rule);
-    border-left:3px solid var(--gold);
-  }
-  .synthesis h2{
-    margin-top:0; border-bottom:none;
-    font-size:1.3rem; margin-bottom:.5em;
-  }
+  /* ── Research page ──────────────────────────────────── */
+  .lit-entry{margin-bottom:2.2em; padding-left:20px; border-left:2px solid var(--rule);}
+  .lit-entry .src{display:block; font-family:var(--serif); font-size:1.08rem; color:var(--forest); margin-bottom:.35em;}
+  .lit-entry .src strong{font-weight:700;}
+  .lit-entry .work{font-style:italic;}
+  .commentary{font-style:italic; color:var(--muted); font-size:.98rem; line-height:1.75;}
 
-  /* ─── Evidence card (in-essay callout) ─────────────────── */
-  .evidence-card{
-    margin:1.9em 0;
-    padding:22px 26px;
-    background:var(--paper);
-    border:1px solid var(--rule);
-    border-left:3px solid var(--gold);
+  .synthesis, .evidence-card{
+    margin:2.4em 0; padding:30px 32px; background:var(--forest); color:var(--on-dark);
   }
-  .evidence-kicker{
-    font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:11px;
-  }
-  .evidence-card p{
-    margin:0; font-size:.96rem; line-height:1.66; color:var(--ink-2);
-  }
+  .synthesis h2{color:var(--on-dark) !important; margin:0 0 .5em !important; font-size:1.6rem !important;}
+  .synthesis p, .evidence-card p{color:var(--on-dark-2);}
+  .synthesis p:last-child, .evidence-card p:last-child{margin-bottom:0;}
+  .synthesis a, .evidence-card a{color:var(--on-dark);}
+  .evidence-kicker{font-family:var(--sans); font-size:.85rem; font-weight:600; color:var(--marigold); margin-bottom:10px;}
 
-  /* ─── Footer ───────────────────────────────────────────── */
+  /* ── Project cards (clickable) ──────────────────────── */
+  .proj-cards{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:1.6em 0 2em;
+  }
+  .proj-card{
+    display:flex; flex-direction:column; padding:22px 20px 20px;
+    background:var(--sage); border:1px solid var(--rule); cursor:pointer;
+    font-family:var(--sans); transition:background .2s, color .2s, border-color .2s;
+  }
+  .proj-kicker{font-size:.8rem; font-weight:600; color:var(--marigold-deep); margin-bottom:10px;}
+  .proj-head{font-family:var(--display); font-weight:400; font-size:1.3rem; line-height:1.15; color:var(--forest); margin-bottom:8px;}
+  .proj-sub{font-family:var(--serif); font-style:italic; font-size:.9rem; line-height:1.45; color:var(--muted); margin-bottom:10px !important;}
+  .proj-body{font-size:.86rem; line-height:1.55; color:var(--ink-2); flex:1; margin-bottom:16px !important;}
+  .proj-link{font-size:.85rem; font-weight:600; color:var(--forest);}
+  .proj-card:hover, .proj-card:focus-visible{background:var(--forest); border-color:var(--forest);}
+  .proj-card:hover .proj-head, .proj-card:hover .proj-link,
+  .proj-card:focus-visible .proj-head, .proj-card:focus-visible .proj-link{color:var(--on-dark);}
+  .proj-card:hover .proj-sub, .proj-card:hover .proj-body,
+  .proj-card:focus-visible .proj-sub, .proj-card:focus-visible .proj-body{color:var(--on-dark-2);}
+  .proj-card:hover .proj-kicker, .proj-card:focus-visible .proj-kicker{color:var(--marigold);}
+
+  /* ── Experience ledger ──────────────────────────────── */
+  .cred-inline{margin:1.6em 0 2em; border-top:2px solid var(--forest);}
+  .cred-card{
+    display:grid; grid-template-columns:200px 1fr; column-gap:28px;
+    padding:20px 0; border-bottom:1px solid var(--rule); font-family:var(--sans);
+  }
+  .cred-kicker{grid-row:1 / span 2; font-size:.88rem; font-weight:600; color:var(--forest); line-height:1.4; padding-top:3px;}
+  .cred-head{font-family:var(--serif); font-weight:700; font-size:1.02rem; color:var(--ink); margin-bottom:4px;}
+  .cred-body{font-size:.9rem; line-height:1.6; color:var(--ink-2); margin:0 !important;}
+
+  /* ── Brookings ──────────────────────────────────────── */
+  .pub-attribution{font-family:var(--sans); font-size:.88rem; color:var(--muted); margin:-.2em 0 1.5em !important;}
+  .brookings-cta{margin-top:2em !important; font-family:var(--sans); font-weight:600;}
+
+  /* ── Footer ─────────────────────────────────────────── */
   footer{
-    border-top:1px solid var(--rule); margin-top:40px;
-    padding:24px 32px; text-align:center;
-    color:var(--muted); font-size:.8rem; letter-spacing:.04em;
+    margin-top:88px; padding:34px 32px; background:var(--forest-deep);
+    text-align:center; font-size:.86rem; color:var(--on-dark-2);
   }
-  footer .fmark{color:var(--espresso);}
+  footer a{color:var(--on-dark);}
+  footer .fmark{font-weight:600;}
 
-  /* ─── Mobile ───────────────────────────────────────────── */
-  @media(max-width:640px){
-    body{font-size:18px;}
-    .nav-inner{
-      flex-wrap:wrap;
-      height:auto;
-      padding:0 18px;
-      min-height:52px;
-      align-items:center;
-    }
+  /* ── Responsive ─────────────────────────────────────── */
+  @media(max-width:1140px){
+    .nav-inner{flex-wrap:wrap; height:auto; min-height:60px; padding:0 20px;}
     .nav-toggle{display:flex;}
     nav.links{
-      flex-basis:100%;
-      flex-direction:column;
-      align-items:stretch;
-      gap:0;
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .3s ease;
-      border-top:0 solid var(--rule);
+      flex-basis:100%; flex-direction:column; align-items:stretch; gap:0;
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
     }
-    nav.links.open{
-      max-height:340px;
-      border-top:1px solid var(--rule);
-      padding-bottom:8px;
-    }
-    .navbtn{
-      width:100%; text-align:left;
-      padding:13px 4px; font-size:.8rem; letter-spacing:.08em;
-      border-bottom:1px solid var(--rule);
-      border-radius:0;
-    }
+    nav.links.open{max-height:440px; border-top:1px solid var(--forest-line); padding-bottom:8px;}
+    .navbtn{width:100%; text-align:left; padding:14px 4px; font-size:.95rem; border-bottom:1px solid var(--forest-line);}
     nav.links .navbtn:last-child{border-bottom:none;}
-    .navbtn.active{
-      box-shadow:none; color:var(--espresso);
-      border-left:2px solid var(--gold);
-      padding-left:12px;
-    }
-    .wrap, .home-hero, .article{padding-left:20px; padding-right:20px;}
-    .home-hero{padding-top:40px;}
-    .cover-letter{padding:28px 20px 40px;}
-    .cred-cards{padding:0 20px;}
+    .navbtn.active{box-shadow:inset 3px 0 0 var(--marigold); padding-left:14px;}
+  }
+  @media(max-width:760px){
+    .proj-cards{grid-template-columns:1fr;}
+    .cred-card{grid-template-columns:1fr; row-gap:4px;}
+    .cred-kicker{grid-row:auto;}
+  }
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .home-hero{padding:56px 22px 110px;}
+    .page-head{padding:52px 22px 110px;}
+    .cover-letter, .article{margin:-72px 12px 0; padding:34px 22px 48px; font-size:1rem;}
+    .article h2{font-size:1.7rem;}
+    .synthesis, .evidence-card{padding:22px;}
+    blockquote{padding-left:18px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important;}
   }
 </style>
 </head>
@@ -408,6 +261,7 @@
       <button class="navbtn" data-page="research">AI &amp; Labor Research</button>
       <button class="navbtn" data-page="essay1">Economic Model Evolution</button>
       <button class="navbtn" data-page="essay2">Working for a Product</button>
+      <button class="navbtn" data-page="brookings">AI and Financial Regulation (Brookings)</button>
     </nav>
   </div>
 </header>
@@ -424,8 +278,8 @@
 
     <div class="cover-letter wrap">
       <p>Dear Anthropic Economic Research Team,</p>
-      <p>I am a rising senior at Dartmouth College studying Economics and Public Policy, and have been reading and writing extensively about the AI transition.</p>
-      <p>I have conducted three projects on AI and labor, all independently motivated:</p>
+      <p>I am a senior at Dartmouth College studying Economics and Public Policy, and I have spent the past year reading and writing extensively about the AI transition.</p>
+      <p>I have conducted four projects on the future of AI:</p>
 
       <div class="proj-cards">
         <div class="proj-card" onclick="showPage('research')" role="button" tabindex="0">
@@ -449,14 +303,26 @@
           <p class="proj-body">When skills expire in five years, the durable asset is caring enough to keep adapting. This is why I'm writing to this team.</p>
           <span class="proj-link">Read the essay →</span>
         </div>
+        <div class="proj-card" onclick="showPage('brookings')" role="button" tabindex="0">
+          <div class="proj-kicker">Brookings Commentary</div>
+          <h3 class="proj-head">The Financial System Needs to Be One Step Ahead on AI</h3>
+          <p class="proj-sub">AI risk and financial regulation</p>
+          <p class="proj-body">Co-written with Aaron Klein: now that money's vaults are databases, banks and regulators have to stay ahead of AI's ability to pick the lock.</p>
+          <span class="proj-link">Read the section →</span>
+        </div>
       </div>
 
       <p>Across my work, I return to the questions: when does AI augment labor, when does it automate labor, and what does the future of work look like? Answering those questions is the purpose of Anthropic's Economic Index, which is why I am interested in contributing to the Economic Research team.</p>
       <p>In my practical analysis, I suggest that instead of focusing on specific roles (which AI may render obsolete), people should be more focused on working for a product that they care about, because that passion will make them more naturally adaptable.</p>
       <p>I am trying to live what I preach and am looking to work for products and teams I am inspired by. I want to work for the Economic Research team because I already love thinking about the ideas the team works on: modeling the economic impacts of AI, measuring it, and developing policy to guide its development.</p>
-      <p>I have linked my work demonstrating my interests in AI's labor impacts in the tabs above. I have also worked on AI and labor research in more formal academic and professional contexts:</p>
+      <p>I have linked my work demonstrating my interests in AI's labor impacts in the tabs above, and I have also worked on AI, labor, and economic policy in more formal academic and professional contexts:</p>
 
       <div class="cred-cards cred-inline">
+        <div class="cred-card">
+          <div class="cred-kicker">The Brookings Institution</div>
+          <h3 class="cred-head">Research Intern, Economic Studies</h3>
+          <p class="cred-body">Co-wrote the financial-system section of a cross-Brookings piece on AI's existential risks with Aaron Klein, and am co-authoring a paper proposing a universal Working Bank Account, alongside federal tax and AI regulation analysis.</p>
+        </div>
         <div class="cred-card">
           <div class="cred-kicker">Dartmouth Political Economy Project</div>
           <h3 class="cred-head">AI &amp; Labor Models Research</h3>
@@ -474,8 +340,9 @@
         </div>
       </div>
 
-      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far. Anthropic's Economic Research team is quantifying the effects of the theories I have been studying. The observed exposure measure and the economic primitives framework hone the augment-versus-automate distinction through data. My work has been the theory looking for exactly this kind of measurement. I am a fast learner who is already deeply engaged with the questions your team is asking, and I would bring genuine intellectual investment, alongside technical capacity, to the work.</p>
-      <p>I would love to talk about how I might contribute — either through a fall internship or a full-time role.</p>
+      <p>Beyond research, I bring a breadth of industry experience that has let me see how technology and economic change play out inside very different kinds of organizations, including market research and client strategy at Snorkel AI, investment banking in Power, Utilities, and Infrastructure at RBC Capital Markets, venture capital diligence at Arc Ventures, and housing policy at NYC's Department of Housing Preservation and Development.</p>
+      <p>I recognize that economic research at Anthropic operates at a different scale and with different tools than what I have worked with so far, but your team is quantifying the effects of the very theories I have been studying, with the observed exposure measure and the economic primitives framework honing the augment-versus-automate distinction through data. My work has been the theory looking for exactly this kind of measurement, and as a fast learner who is already deeply engaged with the questions your team is asking, I would bring genuine intellectual investment, alongside technical capacity and policy experience, to the work.</p>
+      <p>I would love to talk about how I may be able to contribute to the team.</p>
       <p class="cl-sign">Warm regards,<br>Anisha Singhal</p>
     </div>
 
@@ -484,12 +351,13 @@
 
   <!-- ============ PAGE 2 — RESEARCH SUMMARY ============ -->
   <section class="page" id="research">
-    <article class="article wrap">
+    <header class="page-head"><div class="page-head-inner">
       <div class="eyebrow">Literature Review · September 30, 2025</div>
       <h1 class="art-title">Artificial Intelligence &amp; Labor</h1>
       <p class="deck">A synthesis of the academic debate on how AI is reshaping the value and nature of human work.</p>
       <div class="byline"><span class="who">Anisha Singhal</span></div>
-      <hr class="rule-divider">
+    </div></header>
+    <article class="article wrap">
 
       <p class="lede">I conducted a literature review to better understand the academic perspectives of the AI as a complement or substitute for labor debate. My research spanned three main buckets: complement, substitute, and post-work. I compiled a number of theories on the future of labor, but the answer to which one is correct is not in the arguments but in the data. The insights from Anthropic's Economic Index are the next step to answer the question of how the theory applies to the real-world numbers.</p>
       <p>Below is a sample of the theories I analyzed from various academics and industry experts. I have also included some of my commentary on them.</p>
@@ -589,12 +457,13 @@
 
   <!-- ============ PAGE 3 — ESSAY I ============ -->
   <section class="page" id="essay1">
-    <article class="article wrap">
+    <header class="page-head"><div class="page-head-inner">
       <div class="eyebrow">Essay I · May 09, 2025 · <a href="https://anishasinghal.substack.com/p/the-economic-models-will-break-again" target="_blank" rel="noopener" class="eyebrow-link">Substack Link</a></div>
       <h1 class="art-title">The Economic Models Will Break (Again)</h1>
       <p class="deck">Economic models are designed for an era and become outdated. Changes across models can help predict where we are headed in the era of AI.</p>
       <div class="byline"><span class="who">Anisha Singhal</span></div>
-      <hr class="rule-divider">
+    </div></header>
+    <article class="article wrap">
 
       <p>A critical challenge with economic theory is that economic models become outdated. As society undergoes big cultural shifts and technological revolutions, current economic models become unreliable tools to predict movements in the next era of AI. However, looking at the changes across models over time can give us a sense of the direction in which we may be headed.</p>
 
@@ -684,12 +553,13 @@
 
   <!-- ============ PAGE 4 — ESSAY II ============ -->
   <section class="page" id="essay2">
-    <article class="article wrap">
+    <header class="page-head"><div class="page-head-inner">
       <div class="eyebrow">Essay II · May 14, 2026 · <a href="https://anishasinghal.substack.com/p/working-for-a-product-rather-than" target="_blank" rel="noopener" class="eyebrow-link">Substack Link</a></div>
       <h1 class="art-title">Working for a Product Rather than a Role</h1>
       <p class="deck">Instead of looking for jobs by industry, what if we looked for jobs at the companies with products we truly love and want to see succeed?</p>
       <div class="byline"><span class="who">Anisha Singhal</span></div>
-      <hr class="rule-divider">
+    </div></header>
+    <article class="article wrap">
 
       <p>The job search process for fresh grads has become increasingly predictable. We draw a line from a major → a field (medicine, law, business, tech). We define which roles we are after and try to land that role at the most prestigious company for that role. We research the ins and outs of a company before interviewing and point to a couple attributes that make that company special for the "Why Us?" question. But the company is typically a secondary consideration to the role.</p>
       <p>A typical job searcher filters their priorities in the following order:</p>
@@ -738,6 +608,42 @@
     <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
   </section>
 
+  <!-- ============ PAGE 5 — BROOKINGS ============ -->
+  <section class="page" id="brookings">
+    <header class="page-head"><div class="page-head-inner">
+      <div class="eyebrow">Published Commentary · The Brookings Institution · September 23, 2026</div>
+      <h1 class="art-title">Is the AI Existential Threat Real — and Can Regulatory Action Prevent It?</h1>
+      <p class="deck">A multi-author Brookings collection in which scholars across the institution weigh the risks of advanced AI and the regulatory responses each would prescribe.</p>
+      <div class="byline"><span class="who">Anisha Singhal</span><span class="dot">·</span><span class="when">Research Intern, Economic Studies</span></div>
+    </div></header>
+    <article class="article wrap">
+
+      <p class="lede">This fall, I am a Research Intern in Economic Studies at the Brookings Institution, working with Aaron Klein at the Center on Regulation and Markets, where my work spans financial regulation, AI policy, and the overlap between the two — including this piece, a cross-Brookings response to the question of whether AI poses an existential threat and what regulation should do about it.</p>
+
+      <p>The collection gathers short arguments from scholars across Brookings — on cybersecurity, liability, antitrust, the Global South, jobs and the tax base, measurement and evaluation, and more. Below is the section I co-wrote with Aaron Klein, as it appears in the piece.</p>
+
+      <h2>The financial system needs to be one step ahead on AI</h2>
+      <p class="pub-attribution">Co-written with Aaron Klein · The Brookings Institution · September 23, 2026</p>
+
+      <p>Today's financial system is fundamentally an electronic record system of who has what assets and where. In the 20th century, banks built the biggest safes to hold cash, gold, and valuables. In the modern era, money is digital, and its new vaults are databases. AI's ability to "pick" the financial system's lock is an existential threat. The financial system's ability to be one step ahead is necessary to prevent financial and social chaos.</p>
+
+      <p>Banking is among the most regulated sectors of the economy, and Uncle Sam has already sounded the AI alarm bell. The same day Anthropic <a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank" rel="noopener">previewed</a> its Mythos model, Treasury Secretary Scott Bessent and Federal Reserve Chair Jerome Powell <a href="https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html" target="_blank" rel="noopener">summoned the CEOs of the largest banks</a> for an emergency meeting to make sure they were prepared.</p>
+
+      <p>Banks have powerful incentives to defend their systems: Their franchise depends on customers trusting their money is safe. Regulators need to ensure banks maintain safeguards, particularly with third-party providers who are not as regulated. The government needs to share information regarding threats and allow banks to share information amongst themselves. Banks frequently can identify where an attack originates but stay quiet, because sharing information may violate antitrust or consumer privacy regulations. Safe harbors for good-faith <a href="https://www.fincen.gov/resources/section-314b" target="_blank" rel="noopener">sharing</a> of information should be expanded to include AI.</p>
+
+      <blockquote><p>But who is watching the watchers?</p></blockquote>
+
+      <p>Financial regulators must protect their own systems, some of which are critical infrastructure the private banking system depends on. Here the record is alarming. The <a href="https://www.ffiec.gov/npw/Home/About" target="_blank" rel="noopener">Federal Reserve's National Information Center</a> (the database behind bank supervision and the discount window) <a href="https://www.wsj.com/finance/regulation/fed-system-monitoring-banks-suffered-outage-last-month-e5decdbd" target="_blank" rel="noopener">went offline</a> for at least 48 hours in August. The Fed has been close-lipped about this, prompting Sen. Elizabeth Warren (D-Mass.) to <a href="https://www.banking.senate.gov/newsroom/minority/09/15/2026/warren-opens-inquiry-into-serious-federal-reserve-data-outage-presses-banking-agencies-on-impacts-of-drastic-workforce-cuts" target="_blank" rel="noopener">open an inquiry</a>.</p>
+
+      <p>The Fed's payment services have <a href="https://www.newyorkfed.org/medialibrary/Microsites/tmpg/files/Apr-2019-TMPG-Meeting-Minutes.pdf" target="_blank" rel="noopener">failed</a> <a href="https://www.bankingdive.com/news/federal-reserve-operational-error-payment-system-outage/595678/" target="_blank" rel="noopener">at least</a> <a href="https://www.bankingdive.com/news/federal-reserve-ach-payment-network-disruption/569534/" target="_blank" rel="noopener">twice</a> before in 2019 and 2021, and we still don't know what happened. The Fed even <a href="https://www.aljazeera.com/economy/2021/2/25/fed-outage-raises-questions-on-wall-street-as-services-restored" target="_blank" rel="noopener">denied Bloomberg's request (and appeal)</a> to find out more under the Freedom of Information Act. In 2025, the Office of the Comptroller of the Currency (OCC) <a href="https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-30.html" target="_blank" rel="noopener">disclosed</a> that intruders read over 100,000 messages containing sensitive supervisory information about the banks it oversees.</p>
+
+      <p>If we want banks to be honest about their security, regulators should start being honest themselves. Resiliency, redundancy, tested continuity planning, background checks, and prompt breach disclosure are all things examiners demand of banks. Regulators should hold themselves to the same standard. Unlike banks, regulators don't face market discipline. Congress and the public need to hold them accountable.</p>
+
+      <p class="brookings-cta"><a href="https://www.brookings.edu/articles/is-the-ai-existential-threat-real-and-can-regulatory-action-prevent-it/" target="_blank" rel="noopener">Read the full collection on Brookings →</a></p>
+    </article>
+    <footer><a href="https://anishasinghal.substack.com/" target="_blank" rel="noopener" class="fmark">Inspired by Economics</a> · Anisha Singhal · <a href="mailto:anisha.singhal.27@dartmouth.edu">anisha.singhal.27@dartmouth.edu</a> · (646) 531-3325</footer>
+  </section>
+
 </main>
 
 <script>
@@ -781,7 +687,7 @@
   });
 
   const initial = (location.hash || '#home').replace('#','');
-  const valid = ['home','research','essay1','essay2'];
+  const valid = ['home','research','essay1','essay2','brookings'];
   showPage(valid.includes(initial) ? initial : 'home');
 </script>
 
